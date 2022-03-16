@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+import { takeLast } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'finaluri-proeqti';
+  title = 'To Do List';
+  list:any[]=[];
+  addTask(item:string)
+  {
+      this.list.push({id:this.list.length, name:item})
+      console.warn(this.list);
+  }
+
+  removeTask(id:number)
+  {
+    console.warn(id)
+    this.list = this.list.filter(item=>item.id!==id)
+  }
+
 }
+
+ 
